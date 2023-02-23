@@ -3,7 +3,11 @@ import Paper from "@mui/material/Paper";
 
 import { pad } from "@/utils";
 
-const Countdown = ({ seconds }: { seconds: number }) => {
+interface CountdownProps {
+  seconds: number;
+}
+
+const Countdown = ({ seconds }: CountdownProps) => {
   const initialMinutes = Math.floor(seconds / 60);
   const initialSeconds = seconds % 60;
 
