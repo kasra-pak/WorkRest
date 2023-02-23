@@ -13,7 +13,7 @@ import SettingsModal from "@/components/SettingsModal";
 import { theme } from "@/theme";
 
 export default function Home() {
-  const { seconds } = useCountdown(240);
+  const { seconds, playPause } = useCountdown(240);
   const [isSettingOpen, setIsSettingOpen] = useState(false);
 
   const openSettingsModal = () => {
@@ -30,7 +30,7 @@ export default function Home() {
       <Container maxWidth="sm">
         <Header toggleModal={openSettingsModal} />
         <ToggleBtn />
-        <Countdown seconds={seconds} />
+        <Countdown seconds={seconds} playPause={playPause} />
         <SettingsModal
           isModalOpen={isSettingOpen}
           closeModal={closeSettingsModal}
