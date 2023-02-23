@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
+import QuestionMark from "@mui/icons-material/QuestionMark";
 import { useTheme } from "@mui/material/styles";
 
 import TomatoSVG from "public/images/tomato.svg";
@@ -25,10 +28,13 @@ const Header = ({ toggleModal }: HeaderProps) => {
       }}
     >
       <Box
+        component={Link}
+        href="/"
         sx={{
           display: "flex",
           alignItems: "center",
           gap: ".75em",
+          textDecoration: "none",
         }}
       >
         <TomatoSVG width="40px" fill={theme.palette.primary.main} />
@@ -36,9 +42,17 @@ const Header = ({ toggleModal }: HeaderProps) => {
           Pomodoro
         </Typography>
       </Box>
-      <IconButton color="secondary" onClick={toggleModal}>
-        <SettingsIcon />
-      </IconButton>
+
+      <Box>
+        <IconButton color="secondary" onClick={toggleModal}>
+          <SettingsIcon />
+        </IconButton>
+        <Link href="/about">
+          <IconButton color="secondary">
+            <QuestionMark />
+          </IconButton>
+        </Link>
+      </Box>
     </Box>
   );
 };
