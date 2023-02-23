@@ -6,7 +6,11 @@ import { useTheme } from "@mui/material/styles";
 
 import TomatoSVG from "public/images/tomato.svg";
 
-const Header = () => {
+interface HeaderProps {
+  toggleModal: () => void;
+}
+
+const Header = ({ toggleModal }: HeaderProps) => {
   const theme = useTheme();
 
   return (
@@ -32,7 +36,7 @@ const Header = () => {
           Pomodoro
         </Typography>
       </Box>
-      <IconButton color="secondary">
+      <IconButton color="secondary" onClick={toggleModal}>
         <SettingsIcon />
       </IconButton>
     </Box>
