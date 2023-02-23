@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 
-import { pad } from "@/uitls";
+import { pad } from "@/utils";
 
 const Countdown = ({ seconds }: { seconds: number }) => {
   const initialMinutes = Math.floor(seconds / 60);
