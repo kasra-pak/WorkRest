@@ -6,10 +6,10 @@ function Home() {
   const { seconds, playPause } = useCountdown(240);
 
   return (
-    <>
+    <main>
       <ToggleBtn />
       <Countdown seconds={seconds} playPause={playPause} />
-    </>
+    </main>
   );
 }
 
