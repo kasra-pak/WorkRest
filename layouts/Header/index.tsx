@@ -23,6 +23,7 @@ const Header = ({ toggleModal }: HeaderProps) => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        marginBottom: 4,
         padding: "1em 0",
         borderBottom: "1px solid lightgray",
       }}

@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-type Values = "pomodoro" | "short-break" | "long-break";
+type Timers = "pomodoro" | "short-break" | "long-break";
 
-const ToggleBtn = () => {
-  const [value, setValue] = useState<Values>("pomodoro");
+interface ToggleBtnProps {
+  value: Timers;
+  handleChange: (e: React.MouseEvent<HTMLElement>, newValue: Timers) => void;
+}
 
-  const handleChange = (e: React.MouseEvent<HTMLElement>, newValue: Values) => {
-    setValue(newValue);
-  };
-
+const ToggleBtn = ({ value, handleChange }: ToggleBtnProps) => {
   return (
     <ToggleButtonGroup value={value} exclusive onChange={handleChange}>
       <ToggleButton value="pomodoro">pomodoro</ToggleButton>
