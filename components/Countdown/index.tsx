@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ReplayIcon from "@mui/icons-material/Replay";
 
 import { pad } from "@/utils";
@@ -42,17 +42,7 @@ const Countdown = ({ seconds, paused, playPause, reset }: CountdownProps) => {
       >
         {pad(initialMinutes)}:{pad(initialSeconds)}
       </Typography>
-      <Typography
-        component="div"
-        variant="subtitle1"
-        align="center"
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          letterSpacing: 10,
-          textIndent: 10,
-        }}
-      />
+
       <Box sx={{ display: "flex" }}>
         <IconButton
           onClick={() => {
