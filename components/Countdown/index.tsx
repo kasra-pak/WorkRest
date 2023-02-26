@@ -1,5 +1,10 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PauseIcon from "@mui/icons-material/Pause";
+import ReplayIcon from "@mui/icons-material/Replay";
 
 import { pad } from "@/utils";
 
@@ -7,9 +12,10 @@ interface CountdownProps {
   seconds: number;
   paused: boolean;
   playPause: () => void;
+  reset: (sec?: number) => void;
 }
 
-const Countdown = ({ seconds, paused, playPause }: CountdownProps) => {
+const Countdown = ({ seconds, paused, playPause, reset }: CountdownProps) => {
   const initialMinutes = Math.floor(seconds / 60);
   const initialSeconds = seconds % 60;
 
@@ -27,9 +33,7 @@ const Countdown = ({ seconds, paused, playPause }: CountdownProps) => {
         aspectRatio: "1",
         borderRadius: "100%",
         userSelect: "none",
-        cursor: "pointer",
       }}
-      onClick={playPause}
     >
       <Typography
         component="div"
@@ -48,9 +52,23 @@ const Countdown = ({ seconds, paused, playPause }: CountdownProps) => {
           letterSpacing: 10,
           textIndent: 10,
         }}
-      >
-        {paused ? "PLAY" : "PAUSE"}
-      </Typography>
+      />
+      <Box sx={{ display: "flex" }}>
+        <IconButton
+          onClick={() => {
+            reset();
+          }}
+        >
+          <ReplayIcon />
+        </IconButton>
+        <IconButton
+          onClick={() => {
+            playPause();
+          }}
+        >
+          {paused ? <PlayArrowIcon /> : <PauseIcon />}
+        </IconButton>
+      </Box>
     </Box>
   );
 };

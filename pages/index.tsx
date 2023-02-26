@@ -9,12 +9,15 @@ interface HomeProps {
     pomodoroSeconds: number;
     isPomodoroPaused: boolean;
     playPausePomodoro: () => void;
+    resetPomodoro: (sec?: number) => void;
     shortBreakSeconds: number;
     isShortBreakPaused: boolean;
     playPauseShortBreak: () => void;
+    resetShortBreak: (sec?: number) => void;
     longBreakSeconds: number;
     isLongBreakPaused: boolean;
     playPauseLongBreak: () => void;
+    resetLongBreak: (sec?: number) => void;
   };
 }
 
@@ -23,12 +26,15 @@ function Home({ timers }: HomeProps) {
     pomodoroSeconds,
     isPomodoroPaused,
     playPausePomodoro,
+    resetPomodoro,
     shortBreakSeconds,
     isShortBreakPaused,
     playPauseShortBreak,
+    resetShortBreak,
     longBreakSeconds,
     isLongBreakPaused,
     playPauseLongBreak,
+    resetLongBreak,
   } = timers;
 
   const [timer, setTimer] = useState<Timers>("pomodoro");
@@ -59,6 +65,7 @@ function Home({ timers }: HomeProps) {
           seconds={pomodoroSeconds}
           paused={isPomodoroPaused}
           playPause={playPausePomodoro}
+          reset={resetPomodoro}
         />
       )}
 
@@ -67,6 +74,7 @@ function Home({ timers }: HomeProps) {
           seconds={shortBreakSeconds}
           paused={isShortBreakPaused}
           playPause={playPauseShortBreak}
+          reset={resetShortBreak}
         />
       )}
 
@@ -75,6 +83,7 @@ function Home({ timers }: HomeProps) {
           seconds={longBreakSeconds}
           paused={isLongBreakPaused}
           playPause={playPauseLongBreak}
+          reset={resetLongBreak}
         />
       )}
     </Box>

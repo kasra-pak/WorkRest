@@ -34,12 +34,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     pomodoroSeconds,
     isPomodoroPaused,
     playPausePomodoro,
+    resetPomodoro,
     shortBreakSeconds,
     isShortBreakPaused,
     playPauseShortBreak,
+    resetShortBreak,
     longBreakSeconds,
     isLongBreakPaused,
     playPauseLongBreak,
+    resetLongBreak,
   };
 
   const [isSettingOpen, setIsSettingOpen] = useState(false);
