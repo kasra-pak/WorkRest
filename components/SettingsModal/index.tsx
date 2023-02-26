@@ -43,6 +43,39 @@ const SettingsModal = ({
     defaultLongBreakDuration
   );
 
+  const handlePomodoroDurationChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPomodoroDuration((prevState) => {
+      const value = +e.target.value;
+
+      if (value < 0 || value > 99) return prevState;
+      return value;
+    });
+  };
+
+  const handleShortBreakDurationChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setShortBreakDuration((prevState) => {
+      const value = +e.target.value;
+
+      if (value < 0 || value > 5) return prevState;
+      return value;
+    });
+  };
+
+  const handleLongBreakDurationChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setLongBreakDuration((prevState) => {
+      const value = +e.target.value;
+
+      if (value < 0 || value > 30) return prevState;
+      return value;
+    });
+  };
+
   const handleApply = () => {
     resetPomodoro(pomodoroDuration);
     resetShortBreak(shortBreakDuration);
@@ -90,27 +123,21 @@ const SettingsModal = ({
               variant="outlined"
               label="pomodoro"
               value={pomodoroDuration.toString()}
-              onChange={(e) => {
-                setPomodoroDuration(+e.target.value);
-              }}
+              onChange={handlePomodoroDurationChange}
             />
             <TextField
               type="number"
               variant="outlined"
               label="short break"
               value={shortBreakDuration.toString()}
-              onChange={(e) => {
-                setShortBreakDuration(+e.target.value);
-              }}
+              onChange={handleShortBreakDurationChange}
             />
             <TextField
               type="number"
               variant="outlined"
               label="long break"
               value={longBreakDuration.toString()}
-              onChange={(e) => {
-                setLongBreakDuration(+e.target.value);
-              }}
+              onChange={handleLongBreakDurationChange}
             />
           </Box>
         </DialogContent>
