@@ -1,33 +1,64 @@
-import SimpleDialog from "@mui/material/Dialog";
+import { useState } from "react";
 
+import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 interface SettingsModalProps {
   isModalOpen: boolean;
+  defaultPomodoroDuration: number;
+  defaultShortBreakDuration: number;
+  defaultLongBreakDuration: number;
+  resetPomodoro: (sec?: number) => void;
+  resetShortBreak: (sec?: number) => void;
+  resetLongBreak: (sec?: number) => void;
   closeModal: () => void;
 }
-const SettingsModal = ({ isModalOpen, closeModal }: SettingsModalProps) => {
+
+const SettingsModal = ({
+  isModalOpen,
+  defaultPomodoroDuration,
+  defaultShortBreakDuration,
+  defaultLongBreakDuration,
+  resetPomodoro,
+  resetShortBreak,
+  resetLongBreak,
+  closeModal,
+}: SettingsModalProps) => {
+  const [pomodoroDuration, setPomodoroDuration] = useState(
+    defaultPomodoroDuration
+  );
+  const [shortBreakDuration, setShortBreakDuration] = useState(
+    defaultShortBreakDuration
+  );
+  const [longBreakDuration, setLongBreakDuration] = useState(
+    defaultLongBreakDuration
+  );
+
+  const handleApply = () => {
+    resetPomodoro(pomodoroDuration * 60);
+    resetShortBreak(shortBreakDuration * 60);
+    resetLongBreak(longBreakDuration * 60);
+  };
+
   return (
-    <SimpleDialog
-      // selectedValue={selectedValue}
-      maxWidth="md"
-      open={isModalOpen}
-      onClose={closeModal}
-    >
+    <Dialog maxWidth="md" open={isModalOpen} onClose={closeModal}>
       <Box>
         <DialogTitle
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            // p: "1em",
+            paddingInline: 2,
+            paddingBlock: 1,
           }}
         >
           <Typography component="h2" variant="h5">
@@ -38,7 +69,7 @@ const SettingsModal = ({ isModalOpen, closeModal }: SettingsModalProps) => {
           </IconButton>
         </DialogTitle>
         <Divider />
-        <DialogContent>
+        <DialogContent sx={{ paddingInline: 2, paddingBlock: 1 }}>
           <Typography
             component="h3"
             variant="subtitle1"
@@ -57,24 +88,36 @@ const SettingsModal = ({ isModalOpen, closeModal }: SettingsModalProps) => {
               type="number"
               variant="outlined"
               label="pomodoro"
-              defaultValue={25}
+              defaultValue={defaultPomodoroDuration}
+              value={pomodoroDuration}
+              onChange={(e) => setPomodoroDuration(+e.target.value)}
             />
             <TextField
               type="number"
               variant="outlined"
               label="short break"
-              defaultValue={5}
+              defaultValue={defaultShortBreakDuration}
+              value={shortBreakDuration}
+              onChange={(e) => setShortBreakDuration(+e.target.value)}
             />
             <TextField
               type="number"
               variant="outlined"
               label="long break"
-              defaultValue={15}
+              defaultValue={defaultLongBreakDuration}
+              value={longBreakDuration}
+              onChange={(e) => setLongBreakDuration(+e.target.value)}
             />
           </Box>
         </DialogContent>
+        <Divider />
+        <DialogActions sx={{ paddingInline: 2, paddingBlock: 1 }}>
+          <Button onClick={handleApply} color="secondary">
+            Apply
+          </Button>
+        </DialogActions>
       </Box>
-    </SimpleDialog>
+    </Dialog>
   );
 };
 

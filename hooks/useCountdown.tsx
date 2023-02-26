@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const useCountdown = (
   initialSeconds: number
-): [number, boolean, () => void] => {
+): [number, boolean, () => void, (sec?: number) => void] => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [paused, setPaused] = useState(true);
 
@@ -36,7 +36,16 @@ const useCountdown = (
     setPaused((prevState) => !prevState);
   };
 
-  return [seconds, paused, playPause];
+  const reset = (sec?: number) => {
+    if (sec !== undefined) {
+      setSeconds(sec);
+    } else {
+      setSeconds(initialSeconds);
+    }
+    setPaused(true);
+  };
+
+  return [seconds, paused, playPause, reset];
 };
 
 export default useCountdown;

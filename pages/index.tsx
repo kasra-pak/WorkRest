@@ -1,20 +1,39 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 
-import useCountdown from "@/hooks/useCountdown";
 import ToggleBtn from "@/components/ToggleBtn";
 import Countdown from "@/components/Countdown";
 
 type Timers = "pomodoro" | "short-break" | "long-break";
 
-function Home() {
+interface HomeProps {
+  timers: {
+    pomodoroSeconds: number;
+    isPomodoroPaused: boolean;
+    playPausePomodoro: () => void;
+    shortBreakSeconds: number;
+    isShortBreakPaused: boolean;
+    playPauseShortBreak: () => void;
+    longBreakSeconds: number;
+    isLongBreakPaused: boolean;
+    playPauseLongBreak: () => void;
+  };
+}
+
+function Home({ timers }: HomeProps) {
+  const {
+    pomodoroSeconds,
+    isPomodoroPaused,
+    playPausePomodoro,
+    shortBreakSeconds,
+    isShortBreakPaused,
+    playPauseShortBreak,
+    longBreakSeconds,
+    isLongBreakPaused,
+    playPauseLongBreak,
+  } = timers;
+
   const [timer, setTimer] = useState<Timers>("pomodoro");
-  const [pomodoroSeconds, isPomodoroPaused, playPausePomodoro] =
-    useCountdown(1500);
-  const [shortBreakSeconds, isShortBreakPaused, playPauseShortBreak] =
-    useCountdown(300);
-  const [longBreakSeconds, isLongBreakPaused, playPauseLongBreak] =
-    useCountdown(900);
 
   const handleTimerChange = (
     e: React.MouseEvent<HTMLElement>,
