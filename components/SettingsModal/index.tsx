@@ -88,7 +88,6 @@ const SettingsModal = ({
               type="number"
               variant="outlined"
               label="pomodoro"
-              defaultValue={defaultPomodoroDuration}
               value={pomodoroDuration}
               onChange={(e) => setPomodoroDuration(+e.target.value)}
             />
@@ -96,7 +95,6 @@ const SettingsModal = ({
               type="number"
               variant="outlined"
               label="short break"
-              defaultValue={defaultShortBreakDuration}
               value={shortBreakDuration}
               onChange={(e) => setShortBreakDuration(+e.target.value)}
             />
@@ -104,7 +102,6 @@ const SettingsModal = ({
               type="number"
               variant="outlined"
               label="long break"
-              defaultValue={defaultLongBreakDuration}
               value={longBreakDuration}
               onChange={(e) => setLongBreakDuration(+e.target.value)}
             />
