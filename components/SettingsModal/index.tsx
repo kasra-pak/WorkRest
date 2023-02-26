@@ -53,6 +53,7 @@ const SettingsModal = ({
     <Dialog maxWidth="md" open={isModalOpen} onClose={closeModal}>
       <Box>
         <DialogTitle
+          component="div"
           sx={{
             display: "flex",
             justifyContent: "space-between",
