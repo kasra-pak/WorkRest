@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-type Timers = "pomodoro" | "short-break" | "long-break";
-
 interface ToggleBtnProps {
   value: Timers;
   handleChange: (e: React.MouseEvent<HTMLElement>, newValue: Timers) => void;

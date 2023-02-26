@@ -4,8 +4,6 @@ import Box from "@mui/material/Box";
 import ToggleBtn from "@/components/ToggleBtn";
 import Countdown from "@/components/Countdown";
 
-type Timers = "pomodoro" | "short-break" | "long-break";
-
 interface HomeProps {
   timers: {
     pomodoroSeconds: number;
