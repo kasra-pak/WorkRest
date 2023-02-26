@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
 const useCountdown = (
-  initialSeconds: number
+  initialMinutes: number
 ): [number, boolean, () => void, ResetTimer] => {
+  const initialSeconds = initialMinutes * 60;
   const [seconds, setSeconds] = useState(initialSeconds);
   const [paused, setPaused] = useState(true);
 
@@ -36,9 +37,9 @@ const useCountdown = (
     setPaused((prevState) => !prevState);
   };
 
-  const reset: ResetTimer = (sec) => {
-    if (sec !== undefined) {
-      setSeconds(sec);
+  const reset: ResetTimer = (min) => {
+    if (min !== undefined) {
+      setSeconds(min * 60);
     } else {
       setSeconds(initialSeconds);
     }

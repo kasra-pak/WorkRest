@@ -44,9 +44,9 @@ const SettingsModal = ({
   );
 
   const handleApply = () => {
-    resetPomodoro(pomodoroDuration * 60);
-    resetShortBreak(shortBreakDuration * 60);
-    resetLongBreak(longBreakDuration * 60);
+    resetPomodoro(pomodoroDuration);
+    resetShortBreak(shortBreakDuration);
+    resetLongBreak(longBreakDuration);
   };
 
   return (

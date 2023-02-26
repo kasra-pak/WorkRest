@@ -16,19 +16,19 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const defaultLongBreakDuration = 15;
 
   const [pomodoroSeconds, isPomodoroPaused, playPausePomodoro, resetPomodoro] =
-    useCountdown(defaultPomodoroDuration * 60);
+    useCountdown(defaultPomodoroDuration);
   const [
     shortBreakSeconds,
     isShortBreakPaused,
     playPauseShortBreak,
     resetShortBreak,
-  ] = useCountdown(defaultShortBreakDuration * 60);
+  ] = useCountdown(defaultShortBreakDuration);
   const [
     longBreakSeconds,
     isLongBreakPaused,
     playPauseLongBreak,
     resetLongBreak,
-  ] = useCountdown(defaultLongBreakDuration * 60);
+  ] = useCountdown(defaultLongBreakDuration);
 
   const timers = {
     pomodoroSeconds,
