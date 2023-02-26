@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Box from "@mui/material/Box";
 
 import useCountdown from "@/hooks/useCountdown";
 import ToggleBtn from "@/components/ToggleBtn";
@@ -25,7 +26,15 @@ function Home() {
   };
 
   return (
-    <main>
+    <Box
+      component="main"
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 4,
+      }}
+    >
       <ToggleBtn value={timer} handleChange={handleTimerChange} />
 
       {timer === "pomodoro" && (
@@ -51,7 +60,7 @@ function Home() {
           playPause={playPauseLongBreak}
         />
       )}
-    </main>
+    </Box>
   );
 }
 
