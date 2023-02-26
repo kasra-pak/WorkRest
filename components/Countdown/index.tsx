@@ -5,10 +5,11 @@ import { pad } from "@/utils";
 
 interface CountdownProps {
   seconds: number;
+  paused: boolean;
   playPause: () => void;
 }
 
-const Countdown = ({ seconds, playPause }: CountdownProps) => {
+const Countdown = ({ seconds, paused, playPause }: CountdownProps) => {
   const initialMinutes = Math.floor(seconds / 60);
   const initialSeconds = seconds % 60;
 
@@ -48,7 +49,7 @@ const Countdown = ({ seconds, playPause }: CountdownProps) => {
           textIndent: 10,
         }}
       >
-        PAUSE
+        {paused ? "PLAY" : "PAUSE"}
       </Typography>
     </Box>
   );

@@ -8,9 +8,12 @@ type Timers = "pomodoro" | "short-break" | "long-break";
 
 function Home() {
   const [timer, setTimer] = useState<Timers>("pomodoro");
-  const [pomodoroSeconds, playPausePomodoro] = useCountdown(1500);
-  const [shortBreakSeconds, playPauseShortBreak] = useCountdown(300);
-  const [longBreakSeconds, playPauseLongBreak] = useCountdown(900);
+  const [pomodoroSeconds, isPomodoroPaused, playPausePomodoro] =
+    useCountdown(1500);
+  const [shortBreakSeconds, isShortBreakPaused, playPauseShortBreak] =
+    useCountdown(300);
+  const [longBreakSeconds, isLongBreakPaused, playPauseLongBreak] =
+    useCountdown(900);
 
   const handleTimerChange = (
     e: React.MouseEvent<HTMLElement>,
@@ -26,18 +29,27 @@ function Home() {
       <ToggleBtn value={timer} handleChange={handleTimerChange} />
 
       {timer === "pomodoro" && (
-        <Countdown seconds={pomodoroSeconds} playPause={playPausePomodoro} />
+        <Countdown
+          seconds={pomodoroSeconds}
+          paused={isPomodoroPaused}
+          playPause={playPausePomodoro}
+        />
       )}
 
       {timer === "short-break" && (
         <Countdown
           seconds={shortBreakSeconds}
+          paused={isShortBreakPaused}
           playPause={playPauseShortBreak}
         />
       )}
 
       {timer === "long-break" && (
-        <Countdown seconds={longBreakSeconds} playPause={playPauseLongBreak} />
+        <Countdown
+          seconds={longBreakSeconds}
+          paused={isLongBreakPaused}
+          playPause={playPauseLongBreak}
+        />
       )}
     </main>
   );
