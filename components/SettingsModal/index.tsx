@@ -89,22 +89,28 @@ const SettingsModal = ({
               type="number"
               variant="outlined"
               label="pomodoro"
-              value={pomodoroDuration}
-              onChange={(e) => setPomodoroDuration(+e.target.value)}
+              value={pomodoroDuration.toString()}
+              onChange={(e) => {
+                setPomodoroDuration(+e.target.value);
+              }}
             />
             <TextField
               type="number"
               variant="outlined"
               label="short break"
-              value={shortBreakDuration}
-              onChange={(e) => setShortBreakDuration(+e.target.value)}
+              value={shortBreakDuration.toString()}
+              onChange={(e) => {
+                setShortBreakDuration(+e.target.value);
+              }}
             />
             <TextField
               type="number"
               variant="outlined"
               label="long break"
-              value={longBreakDuration}
-              onChange={(e) => setLongBreakDuration(+e.target.value)}
+              value={longBreakDuration.toString()}
+              onChange={(e) => {
+                setLongBreakDuration(+e.target.value);
+              }}
             />
           </Box>
         </DialogContent>
