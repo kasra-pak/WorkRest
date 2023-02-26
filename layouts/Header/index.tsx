@@ -1,11 +1,12 @@
 import Link from "next/link";
 
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import SettingsIcon from "@mui/icons-material/Settings";
-import QuestionMark from "@mui/icons-material/QuestionMark";
+import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
+
+import QuestionMark from "@mui/icons-material/QuestionMark";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 import TomatoSVG from "public/images/tomato.svg";
 
