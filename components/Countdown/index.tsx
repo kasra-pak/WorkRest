@@ -12,7 +12,7 @@ interface CountdownProps {
   seconds: number;
   paused: boolean;
   playPause: () => void;
-  reset: (sec?: number) => void;
+  reset: ResetTimer;
 }
 
 const Countdown = ({ seconds, paused, playPause, reset }: CountdownProps) => {

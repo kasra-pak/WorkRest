@@ -9,15 +9,15 @@ interface HomeProps {
     pomodoroSeconds: number;
     isPomodoroPaused: boolean;
     playPausePomodoro: () => void;
-    resetPomodoro: (sec?: number) => void;
+    resetPomodoro: ResetTimer;
     shortBreakSeconds: number;
     isShortBreakPaused: boolean;
     playPauseShortBreak: () => void;
-    resetShortBreak: (sec?: number) => void;
+    resetShortBreak: ResetTimer;
     longBreakSeconds: number;
     isLongBreakPaused: boolean;
     playPauseLongBreak: () => void;
-    resetLongBreak: (sec?: number) => void;
+    resetLongBreak: ResetTimer;
   };
 }
 

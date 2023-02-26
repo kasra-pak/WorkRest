@@ -1,25 +1,25 @@
 import { useState } from "react";
 
-import Dialog from "@mui/material/Dialog";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface SettingsModalProps {
   isModalOpen: boolean;
   defaultPomodoroDuration: number;
   defaultShortBreakDuration: number;
   defaultLongBreakDuration: number;
-  resetPomodoro: (sec?: number) => void;
-  resetShortBreak: (sec?: number) => void;
-  resetLongBreak: (sec?: number) => void;
+  resetPomodoro: ResetTimer;
+  resetShortBreak: ResetTimer;
+  resetLongBreak: ResetTimer;
   closeModal: () => void;
 }
 
