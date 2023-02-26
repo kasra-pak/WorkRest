@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useCountdown = (
-  initialMinutes: number
-): [number, boolean, () => void, ResetTimer] => {
+const useCountdown = (initialMinutes: number) => {
   const initialSeconds = initialMinutes * 60;
   const [seconds, setSeconds] = useState(initialSeconds);
   const [paused, setPaused] = useState(true);
@@ -46,7 +44,7 @@ const useCountdown = (
     setPaused(true);
   };
 
-  return [seconds, paused, playPause, reset];
+  return [seconds, paused, playPause, reset] as const;
 };
 
 export default useCountdown;
