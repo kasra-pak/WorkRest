@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -8,7 +9,7 @@ import { useTheme } from "@mui/material/styles";
 import QuestionMark from "@mui/icons-material/QuestionMark";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-import TomatoSVG from "public/images/tomato.svg";
+import tomatoImg from "public/images/tomato.svg";
 
 interface HeaderProps {
   toggleModal: () => void;
@@ -39,7 +40,7 @@ const Header = ({ toggleModal }: HeaderProps) => {
           textDecoration: "none",
         }}
       >
-        <TomatoSVG width="40px" fill={theme.palette.primary.main} />
+        <Image src={tomatoImg} alt="tomato" width={40} />
         <Typography component="h1" variant="h4" color="primary">
           Pomodoro
         </Typography>
